@@ -1,0 +1,14 @@
+services:
+  - type: web
+    plan: free
+    name: todo-api
+    runtime: python
+    buildCommand: "./build.sh"
+    startCommand: "python -m gunicorn django_project.asgi:application -k uvicorn.workers.UvicornWorker"
+    envVars:
+      - key: DATABASE_URL
+        value: postgresql://postgres.hznglibktcsjyqhislop:tAspg_db_123@aws-1-ap-south-1.pooler.supabase.com:5432/postgres?sslmode=require
+      - key: SECRET_KEY
+        generateValue: true
+      - key: WEB_CONCURRENCY
+        value: 4
