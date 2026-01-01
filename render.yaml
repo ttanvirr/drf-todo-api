@@ -4,9 +4,7 @@ services:
     name: todo-api
     runtime: python
     buildCommand: "./build.sh"
-    startCommand: >
-      python -m gunicorn django_project.asgi:application
-      -k uvicorn.workers.UvicornWorker
+    startCommand: python -m gunicorn django_project.asgi:application -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:$PORT
     envVars:
       - key: DATABASE_URL
         value: ${DATABASE_URL}
