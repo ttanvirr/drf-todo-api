@@ -19,6 +19,7 @@ services:
     name: create-superuser
     runtime: python
     startCommand: python manage.py create_superuser_if_not_exists
+    runOnDeploy: true
     envVars:
       - key: DATABASE_URL
         value: ${DATABASE_URL}
