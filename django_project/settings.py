@@ -170,13 +170,13 @@ CORS_ALLOWED_ORIGINS = [
 CSRF_TRUSTED_ORIGINS = ["http://localhost:5173"]  # Vite-react dev server
 
 # Superuser password for Render
-from django.contrib.auth import get_user_model
+# from django.contrib.auth import get_user_model
 
-if env("DJANGO_SUPERUSER_PASSWORD", default=None):
-    User = get_user_model()
-    if not User.objects.filter(username="admin").exists():
-        User.objects.create_superuser(
-            username="admin",
-            email="admin@email.com",
-            password=env["DJANGO_SUPERUSER_PASSWORD"],
-        )
+# if env("DJANGO_SUPERUSER_PASSWORD", default=None):
+#     User = get_user_model()
+#     if not User.objects.filter(username="admin").exists():
+#         User.objects.create_superuser(
+#             username="admin",
+#             email="admin@email.com",
+#             password=env["DJANGO_SUPERUSER_PASSWORD"],
+#         )
